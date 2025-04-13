@@ -1,0 +1,234 @@
+ #  
+ #  MDB_Unity_Editor :  20250121
+ #  Engine :  
+ #  
+
+Version :  0x01000800 #  1.0.8.0 ,  16779264
+
+
+Cloth :  Avatar_Male_Size02_HugoVlad_Hair ,  Layer_None ,  Isolate #  Name ,  Layer ,  Close|Close_Center|Open|Isolate
+
+    Unit :  Meter #  Centimeter|Meter
+
+
+    Editor
+
+        Chain #  RootBoneName ,  [TailBoneName]
+            Ctr_LongHair_15 ,  Ctr_LongHair_16_end
+            Ctr_LongHair_09 ,  Ctr_LongHair_10_end
+        End
+
+
+        FlipNorm #  BoneName
+            Ctr_LongHair_11_end
+            Ctr_LongHair_16_end
+        End
+
+
+         #  BoneNorm :  0.0000, 1.0000, 0.0000
+
+    End
+
+
+    SlaveCloth :  Enable
+
+     #  SupplyAnim :  ByAnimPose #  ByAnimPose|ByCachePose|ByRefPose
+
+     #  Solver :  PBD ,  0 #  PBD|PhysicsPBD|AnimPose|None ,  NumVSpringIters
+
+    GravityRescale :  0.0000
+
+     #  CalcParticleNorm :  ByAvgNorm #  ByAvgNorm|ByBoneNorm|ByRootBoneNorm
+
+     #  CalcTrunkRot :  ByMajor #  ByMajor|ByAverage
+
+    TransferMotion :  1.0000, 1.0000 ,  1.0000 #  Pos_Move, Pos_Up ,  Rot
+
+     #  DragLift :  0.0000 ,  0.0000 #  Drag ,  Lift
+
+
+    SimWind :  0.0000, 0.5000 ,  1.0000, -1.0000 ,  Disable, Disable, Disable #  Strength, Frequency ,  MaxSpeed, MinSpeed ,  Spot, Circle, Wave
+        Simple :  0.0000, 0.0000, 0.0000 ,  -1.0000, 0.0000, 0.0000 ,  0.0000, 0.0000 #  Origin ,  Dir ,  ParticleDirNoisy, PhaseNoisy
+        Circle :  -1.0000, 0.0000, 0.0000 ,  0.2000, 0.2000 #  PlaneNorm ,  MaxRescale, MinRescale
+    End
+
+
+    CapsuleCollider #  BoneName   ,    Pole_A_BoneSpace ,  Radius_A   ,    Pole_B_BoneSpace ,  Radius_B   ,    None|Inner|Outer, AutoCCD, SoftCol
+        Ctr_LongHair_06      ,  0.0000, 0.0000, 0.0000 ,  0.0300     ,      -0.1300, 0.0000, 0.0050 ,  0.0350     ,      Inner ,  False ,  False #  [0]
+        Ctr_LongHair_07      ,  0.0000, 0.0000, 0.0050 ,  0.0350     ,      -0.1000, -0.0200, 0.0000 ,  0.0250     ,      Inner ,  False ,  False #  [1]
+    End
+
+
+    VirtEnd :  ByDcc #  None|ByDcc|ByParent|ByPXO|ByAxisX|ByOffset
+
+        DccVirtTail :  5 ,  6 #  Particle ,  Quat ,  Pos ,  Parent ,  Tail
+            2 ,  0.0146, -0.1143, -0.0243, -0.9930 ,  -0.1091, 0.0000, 0.0000 ,  Ctr_LongHair_16 ,  Ctr_LongHair_16_end
+            -1 ,  -0.0146, 0.1143, 0.0243, 0.9930 ,  -0.1091, 0.0000, 0.0000 ,  Ctr_LongHair_14 ,  Ctr_LongHair_14_end
+            5 ,  0.0000, 0.0000, 0.0000, 1.0000 ,  -0.0781, 0.0000, 0.0000 ,  Ctr_LongHair_10 ,  Ctr_LongHair_10_end
+            -1 ,  0.0000, 0.0000, 0.0000, 1.0000 ,  -0.0742, 0.0000, 0.0000 ,  Ctr_LongHair_11 ,  Ctr_LongHair_11_end
+            -1 ,  0.0000, 0.0000, 0.0000, 1.0000 ,  -0.0907, 0.0000, 0.0000 ,  Ctr_LongHair_12 ,  Ctr_LongHair_12_end
+        End
+    End
+
+
+    ParticleData
+
+        Radius
+            Linear, Auto, None ,  0.0000, 0.0100 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.0200 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Mass
+            Linear, Auto, None ,  0.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        DropRate
+            Linear, Auto, None ,  0.0000, 1.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 1.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Damping
+            Linear, Auto, None ,  0.0000, 0.7000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.7000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        InertRate
+            Linear, Auto, None ,  0.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        CompressRate
+            Linear, Auto, None ,  0.0000, 0.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Data :  6 #  Type ,  BoneName     ,      Norm_BoneSpace       ,       Radius, Mass, Friction    ,   DropRate, Damping, InertRate   ,    CompressRate, VirtWidth
+            Root       ,  Ctr_LongHair_15      ,  0.0000, -1.0000, 0.0000     ,      0.0100, 0.5000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0000 #  [0]
+            Regular    ,  Ctr_LongHair_16      ,  0.0000, -1.0000, 0.0000     ,      0.0149, 0.5000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0000 #  [1]
+            VirtTail   ,  Ctr_LongHair_16_end  ,  0.0000, -1.0000, 0.0000     ,      0.0200, 0.5000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0000 #  [2]
+            Root       ,  Ctr_LongHair_09      ,  0.0000, 1.0000, 0.0000     ,      0.0100, 0.5000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0000 #  [3]
+            Regular    ,  Ctr_LongHair_10      ,  0.0000, 1.0000, 0.0000     ,      0.0145, 0.5000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0000 #  [4]
+            VirtTail   ,  Ctr_LongHair_10_end  ,  0.0000, 1.0000, 0.0000     ,      0.0182, 0.5000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0000 #  [5]
+        End
+
+    End
+
+
+    SimFix :  1 #  [2]
+        0, 3 #  [2]
+    End
+
+
+    Chain
+
+        Data :  2
+
+            Chain #  [0]
+                Particle :  0, 1, 2 #  [3]
+            End
+
+
+            Chain #  [1]
+                Particle :  3, 4, 5 #  [3]
+            End
+
+        End
+
+    End
+
+
+    Elastic
+
+        Stiffness
+            Linear, Auto, None ,  0.0000, 0.8000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.6000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Data :  4 #  Base, Curr ,  Stiff
+            0, 1 ,  0.7015 #  [0]
+            1, 2 ,  0.6000 #  [1]
+            3, 4 ,  0.7093 #  [2]
+            4, 5 ,  0.6367 #  [3]
+        End
+
+    End
+
+
+    BackStop
+
+        Stiffness
+            Linear, Auto, None ,  0.0000, 0.8000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.8000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        SphereRadius
+            Linear, Auto, None ,  0.0000, 0.0200 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.1000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        StopDist
+            Linear, Auto, None ,  0.0000, 0.0200 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.0500 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        StopRadius
+            Linear, Auto, None ,  0.0000, 0.3000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Customize_Data :  4 #  ParticleIdx ,  Stiff ,  SphereDist, SphereRadius ,  StopDist, StopRadius ,  ParticleName ,  SupportBone
+            1 ,  0.8000 ,  0.0000, 0.0594 ,  0.0348, 0.3985 ,  Ctr_LongHair_16 ,  Ctr_LongHair_06 #  [0]
+            -1 ,  0.8000 ,  0.0000, 0.1000 ,  0.0746, 0.3985 ,  Ctr_LongHair_14 ,  Ctr_LongHair_06 #  [1]
+            2 ,  0.8000 ,  0.0000, 0.1000 ,  0.0500, 0.5000 ,  Ctr_LongHair_16_end ,  Ctr_LongHair_07 #  [2]
+            -1 ,  0.8000 ,  0.0000, 0.1000 ,  0.1000, 0.5000 ,  Ctr_LongHair_14_end ,  Ctr_LongHair_07 #  [3]
+        End
+
+    End
+
+
+    Angle
+
+        Stiffness
+            Linear, Auto, None ,  0.0000, 0.8000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        LimitDegree
+            Linear, Auto, None ,  0.0000, 10.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 10.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Data :  4 #  Base, Curr ,  Stiff, Radian ,  [VEllipse, HEllipse]
+            0, 1 ,  0.6522 ,  0.1745 #  [0]
+            1, 2 ,  0.5000 ,  0.1745 #  [1]
+            3, 4 ,  0.6640 ,  0.1745 #  [2]
+            4, 5 ,  0.5551 ,  0.1745 #  [3]
+        End
+
+    End
+
+
+    CstConfig :  Auto #  Auto|Collide|SoftBody|Customize
+        Elastic
+        Angle
+        Collide
+        BackStop
+        Stretch
+    End
+
+End
+

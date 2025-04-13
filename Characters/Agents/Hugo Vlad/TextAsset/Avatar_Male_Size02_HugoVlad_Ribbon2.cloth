@@ -1,0 +1,175 @@
+ #  
+ #  MDB_Unity_Editor :  20250121
+ #  Engine :  
+ #  
+
+Version :  0x01000800 #  1.0.8.0 ,  16779264
+
+
+Cloth :  Avatar_Male_Size02_HugoVlad_Ribbon2 ,  Layer_None ,  Isolate #  Name ,  Layer ,  Close|Close_Center|Open|Isolate
+
+    Unit :  Meter #  Centimeter|Meter
+
+
+    Editor
+
+        Chain #  RootBoneName ,  [TailBoneName]
+            Ctr_SuitRibbon_02 ,  Ctr_SuitRibbon_02_end
+        End
+
+
+         #  BoneNorm :  0.0000, 1.0000, 0.0000
+
+    End
+
+
+     #  SupplyAnim :  ByAnimPose #  ByAnimPose|ByCachePose|ByRefPose
+
+     #  Solver :  PBD ,  0 #  PBD|PhysicsPBD|AnimPose|None ,  NumVSpringIters
+
+    GravityRescale :  0.1000
+
+     #  CalcParticleNorm :  ByAvgNorm #  ByAvgNorm|ByBoneNorm|ByRootBoneNorm
+
+     #  CalcTrunkRot :  ByMajor #  ByMajor|ByAverage
+
+    TransferMotion :  0.8000, 0.8000 ,  0.0000 #  Pos_Move, Pos_Up ,  Rot
+
+     #  DragLift :  0.0000 ,  0.0000 #  Drag ,  Lift
+
+
+    SimWind :  0.0000, 0.5000 ,  1.0000, -1.0000 ,  Disable, Disable, Disable #  Strength, Frequency ,  MaxSpeed, MinSpeed ,  Spot, Circle, Wave
+        Simple :  0.0000, 0.0000, 0.0000 ,  -1.0000, 0.0000, 0.0000 ,  0.0000, 0.0000 #  Origin ,  Dir ,  ParticleDirNoisy, PhaseNoisy
+        Circle :  -1.0000, 0.0000, 0.0000 ,  0.2000, 0.2000 #  PlaneNorm ,  MaxRescale, MinRescale
+    End
+
+
+    ColWithSim
+         #  SimPoseCol :  Regular ,  1 ,  Enable #  Regular|VirtEdge|VirtMesh|VirtAll ,  NumIters ,  HCollide
+        ColWithInnerCloth :  2 ,  Elem ,  0.2000 ,  0.5000, 0.2000 ,  False #  NumInnerClothes ,  Sphere|Elem ,  QueryRadiusEnlarge ,  ColRadiusRescale, ColOffsetRescale ,  SoftCol
+    End
+
+
+    VirtEnd :  ByDcc #  None|ByDcc|ByParent|ByPXO|ByAxisX|ByOffset
+
+        DccVirtTail :  1 ,  2 #  Particle ,  Quat ,  Pos ,  Parent ,  Tail
+            1 ,  0.0000, 0.0000, 0.0000, 1.0000 ,  -0.1253, 0.0000, 0.0000 ,  Ctr_SuitRibbon_02 ,  Ctr_SuitRibbon_02_end
+        End
+    End
+
+
+    ParticleData
+
+        Radius
+            Linear, Auto, None ,  0.0000, 0.0100 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.0100 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Mass
+            Linear, Auto, None ,  0.0000, 0.8000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.8000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        DropRate
+            Linear, Auto, None ,  0.0000, 1.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 1.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Damping
+            Linear, Auto, None ,  0.0000, 0.7000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.7000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        InertRate
+            Linear, Auto, None ,  0.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.5000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        CompressRate
+            Linear, Auto, None ,  0.0000, 0.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        VirtWidth
+            Linear, Auto, None ,  0.0000, 0.0300 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.0300 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Data :  2 #  Type ,  BoneName     ,      Norm_BoneSpace       ,       Radius, Mass, Friction    ,   DropRate, Damping, InertRate   ,    CompressRate, VirtWidth
+            Root       ,  Ctr_SuitRibbon_02    ,  0.0000, 1.0000, 0.0000     ,      0.0100, 0.8000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0300 #  [0]
+            VirtTail   ,  Ctr_SuitRibbon_02_end ,  0.0000, 1.0000, 0.0000     ,      0.0100, 0.8000, 0.1000     ,      1.0000, 0.7000, 0.5000     ,      0.0000, 0.0300 #  [1]
+        End
+
+    End
+
+
+    SimFix :  1 #  [1]
+        0 #  [1]
+    End
+
+
+    Chain
+
+        Data :  1
+
+            Chain #  [0]
+                Particle :  0, 1 #  [2]
+            End
+
+        End
+
+    End
+
+
+    Elastic
+
+        Stiffness
+            Linear, Auto, None ,  0.0000, 0.8500 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 0.8500 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Data :  1 #  Base, Curr ,  Stiff
+            0, 1 ,  0.8500 #  [0]
+        End
+
+    End
+
+
+    Angle
+
+        Stiffness
+            Linear, Auto, None ,  0.0000, 1.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 1.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        LimitDegree
+            Linear, Auto, None ,  0.0000, 30.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [0]
+            Linear, Auto, None ,  1.0000, 30.0000 ,  0.0000, 0.0000 ,  0.0000, 0.0000 #  [1]
+        End
+
+
+        Data :  1 #  Base, Curr ,  Stiff, Radian ,  [VEllipse, HEllipse]
+            0, 1 ,  1.0000 ,  0.5236 #  [0]
+        End
+
+    End
+
+
+    CstConfig :  Auto #  Auto|Collide|SoftBody|Customize
+        Elastic
+        Angle
+        Collide
+        Stretch
+    End
+
+End
+
